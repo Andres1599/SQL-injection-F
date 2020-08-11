@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "sql-injection"
+    }
+  },
+  "defaultProject": "sql-injection",
+  "cli": {
+    "analytics": false
+  }
 }
