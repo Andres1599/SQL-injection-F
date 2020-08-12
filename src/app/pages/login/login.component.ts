@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
   login(): void {
     try {
       const user = this.transformData(this.formLogin);
-      console.log(user);
       this.userService.loginUser(user).subscribe((value: Users) => {
         if (value.email !== null) {
           this.authService.setLogin(value);
