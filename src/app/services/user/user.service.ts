@@ -15,18 +15,18 @@ export class UserService {
   }
 
   createUser(user: Users): Observable<any> {
-    return this.http.post(environment.apiBase + 'user', user);
+    return this.http.post(environment.apiBase + '/user', user);
   }
 
   updateUser(user: Users): Observable<any> {
-    return this.http.put(environment.apiBase + 'user', user);
+    return this.http.put(environment.apiBase + '/user', user);
   }
 
   deleteUser(user: Users): Observable<any> {
-    return this.http.delete(environment.apiBase + 'user/' + user.id);
+    return this.http.delete(environment.apiBase + '/user/' + user.id);
   }
 
   loginUser(user: Users): Observable<any> {
-    return this.http.post(environment.apiBase + 'user/login', user);
+    return this.http.post(environment.apiBase + '/user/login', user);
   }
 }

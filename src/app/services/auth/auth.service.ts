@@ -1,9 +1,24 @@
 import { Injectable } from '@angular/core';
+import { Users } from '../../models/users';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
+  readonly userKey = 'token';
 
-  constructor() { }
+  constructor() {}
+
+  setLogin(user: Users): void {
+    localStorage.setItem(this.userKey, '');
+  }
+
+  getCurrentUser(): Users {
+    return {};
+  }
+
+  logout(): void {
+    localStorage.removeItem(this.userKey);
+  }
+
 }
