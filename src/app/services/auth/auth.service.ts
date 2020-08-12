@@ -16,7 +16,11 @@ export class AuthService {
   }
 
   getCurrentUser(): Users {
-    return JSON.parse(localStorage.getItem(this.userKey));
+    try {
+      return JSON.parse(localStorage.getItem(this.userKey));
+    } catch (error) {
+      return null;
+    }
   }
 
   logout(): void {

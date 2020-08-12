@@ -18,8 +18,8 @@ export class UserService {
     );
   }
 
-  readUser(): Observable<Users[]> {
-    return this.http.get<Users[]>(environment.apiBase + '/users/', {
+  readUser(): Observable<{ users: Users[] }> {
+    return this.http.get<{ users: Users[] }>(environment.apiBase + '/users/', {
       headers: this.headers,
     });
   }
