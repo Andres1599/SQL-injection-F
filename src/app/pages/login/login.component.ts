@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
   login(): void {
     try {
       const user = this.transformData(this.formLogin);
+      console.log(user);
       this.userService.loginUser(user).subscribe((value: Users) => {
         if (value.email !== null) {
           this.authService.setLogin(value);
@@ -39,12 +40,12 @@ export class LoginComponent implements OnInit {
   }
 
   transformData(formGroup: FormGroup): Users {
-    if (formGroup.valid) {
+    try {
       return {
         email: formGroup.get('email').value,
         password: formGroup.get('password').value,
       };
-    } else {
+    } catch (error) {
       return null;
     }
   }
