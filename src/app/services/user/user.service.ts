@@ -18,8 +18,8 @@ export class UserService {
     );
   }
 
-  readUser(): Observable<{ users: Users[] }> {
-    return this.http.get<{ users: Users[] }>(environment.apiBase + '/users/', {
+  readUser(): Observable<Users[]> {
+    return this.http.get<Users[]>(environment.apiBase + '/users/', {
       headers: this.headers,
     });
   }
@@ -43,20 +43,9 @@ export class UserService {
   }
 
   loginUser(user: Users): Observable<Users> {
-    return this.http
-      .post(environment.apiBase + '/user/login', user, {
-        headers: this.headers,
-      })
-      .pipe(
-        map((value: any) => {
-          return {
-            name: this.transformData(value).name,
-            last_name: this.transformData(value).last_name,
-            id: this.transformData(value).id,
-            email: this.transformData(value).email,
-          };
-        })
-      );
+    return this.http.post(environment.apiBase + '/user/login', user, {
+      headers: this.headers,
+    });
   }
 
   private transformData(value: any): Users {

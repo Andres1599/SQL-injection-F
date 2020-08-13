@@ -40,10 +40,14 @@ export class LoginComponent implements OnInit {
 
   transformData(formGroup: FormGroup): Users {
     try {
-      return {
-        email: formGroup.get('email').value,
-        password: formGroup.get('password').value,
-      };
+      if (formGroup.valid) {
+        return {
+          email: formGroup.get('email').value,
+          password: formGroup.get('password').value,
+        };
+      } else {
+        return null;
+      }
     } catch (error) {
       return null;
     }

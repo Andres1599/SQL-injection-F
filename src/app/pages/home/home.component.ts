@@ -28,8 +28,8 @@ export class HomeComponent implements OnInit {
   private getUsers(): void {
     try {
       this.userService.readUser().subscribe((value) => {
-        if (value.users.length >= 0) {
-          this.dataSource = new MatTableDataSource<Users>(value.users);
+        if (value.length >= 0) {
+          this.dataSource = new MatTableDataSource<Users>(value);
         } else {
           this.showError = true;
         }
