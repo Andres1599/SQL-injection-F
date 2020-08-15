@@ -28,9 +28,10 @@ export class LoginComponent implements OnInit {
   login(): void {
     try {
       const user = this.transformData(this.formLogin);
-      this.userService.loginUser(user).subscribe((value: Users) => {
-        if (value.email !== null) {
-          this.authService.setLogin(value);
+      this.userService.loginUser(user).subscribe((value: Users[]) => {
+        if (value.length > 0) {
+          console.log(value);
+          this.authService.setLogin(value[0]);
         }
       });
     } catch (error) {

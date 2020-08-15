@@ -42,8 +42,8 @@ export class UserService {
     });
   }
 
-  loginUser(user: Users): Observable<Users> {
-    return this.http.post(environment.apiBase + '/user/login', user, {
+  loginUser(user: Users): Observable<Users[]> {
+    return this.http.post<Users[]>(environment.apiBase + '/user/login', user, {
       headers: this.headers,
     });
   }
